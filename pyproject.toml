@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "launchd-doctor"
+version = "0.1.0"
+description = "Find and fix the macOS LaunchAgent bugs that fail silently, plus a circuit breaker for agents that keep failing."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Victor Navejar (Navii)" }]
+keywords = ["macos", "launchd", "launchagent", "launchctl", "tcc", "automation"]
+classifiers = [
+    "Operating System :: MacOS",
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: System :: Monitoring",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest", "ruff"]
+
+[project.scripts]
+launchd-doctor = "launchd_doctor:main"
+
+[project.urls]
+Homepage = "https://github.com/naviidaviimusic/launchd-doctor"
+
+[tool.setuptools]
+py-modules = ["launchd_doctor"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+
+[tool.ruff]
+line-length = 115
+target-version = "py39"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP"]
+ignore = ["UP006", "UP035", "B023"]
