@@ -8,6 +8,7 @@ jobs:
   test:
     runs-on: macos-latest
     strategy:
+      fail-fast: false
       matrix:
         python-version: ["3.9", "3.13"]
     steps:
