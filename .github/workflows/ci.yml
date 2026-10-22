@@ -16,6 +16,6 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
-      - run: pip install pytest ruff
+      - run: pip install -e . pytest ruff
       - run: ruff check .
       - run: pytest -q
